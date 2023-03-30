@@ -2,50 +2,40 @@ package com.driver;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
-import java.util.ArrayList;
+
 @Service
 public class StudentService {
+
     @Autowired
     StudentRepository studentRepository;
 
     public void addStudent(Student student){
         studentRepository.addStudent(student);
     }
-
     public void addTeacher(Teacher teacher){
         studentRepository.addTeacher(teacher);
     }
-
-    public void addStudentTeacherPair(String student, String teacher){
-        studentRepository.addStudentTeacherPair(student,teacher);
+    public void addStudentTeacherPair(String sname, String tname){
+        studentRepository.addStudentTeacherPair(sname,tname);
     }
-
     public Student getStudentByName(String name){
-        Student student = studentRepository.getStudentByName(name);
-        return student;
+        return studentRepository.getStudentByName(name);
     }
-
     public Teacher getTeacherByName(String name){
-        Teacher teacher = studentRepository.getTeacherByName(name);
-        return teacher;
+        return studentRepository.getTeacherByName(name);
     }
-
     public List<String> getStudentsByTeacherName(String name){
-        List<String> students = studentRepository.getStudentsByTeacherName(name);
-        return students;
+        return studentRepository.getStudentsByTeacherName(name);
     }
-
     public List<String> getAllStudents(){
-        List<String> students = studentRepository.getAllStudents();
-        return students;
+        return studentRepository.getAllStudents();
     }
-
-    public void deleteTeacherByName(String name){
-        studentRepository.deleteTeacherByName(name);
+    public void deleteTeacherByName(String tname){
+        studentRepository.deleteTeacherByName(tname);
     }
-
-    public void deleteAll(){
-        studentRepository.deleteAll();
+    public void deleteAllTeachers(){
+        studentRepository.deleteAllTeachers();
     }
 }
